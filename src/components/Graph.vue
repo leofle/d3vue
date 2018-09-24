@@ -25,6 +25,7 @@ export default {
 
       //Init
 			this.resizeCanvas();
+			this.setContext();
     })
 
 	},
@@ -32,7 +33,6 @@ export default {
 	resizeCanvas(){
 			this.width = window.innerWidth;
 			this.height = window.innerHeight;
-			this.setContext();
 	},
 	setContext(){
 		let svg = d3.select("svg"),
