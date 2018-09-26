@@ -1,12 +1,12 @@
-<template>
-  <div id="app">
-    <Balls />
-    <Graph :width="width" :height="height"/>
-  </div>
-</template>
-
 <script>
 import Graph from './components/Graph.vue'
+import styled from 'vue-styled-components';
+
+const StyledTitle = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`;
 
 export default {
   name: 'app',
@@ -17,17 +17,25 @@ export default {
     }
   },
   components: {
-    Graph
+    Graph,
+    StyledTitle
   },
   mounted(){
-    this.width = 900;
-    this.height = 600;
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
   },
   methods:{
 
   }
 }
 </script>
+
+<template>
+  <div id="app">
+    <StyledTitle>Wellcome to Vue Graph! YaY! 🤘</StyledTitle>
+    <Graph :width="width" :height="height"/>
+  </div>
+</template>
 
 <style>
 html, body {
