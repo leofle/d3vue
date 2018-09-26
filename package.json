@@ -10,6 +10,7 @@
   "dependencies": {
     "@babel/runtime-corejs2": "^7.0.0",
     "vue": "^2.5.17",
+    "vue-router": "^3.0.1",
     "vue-styled-components": "^1.4.0"
   },
   "devDependencies": {

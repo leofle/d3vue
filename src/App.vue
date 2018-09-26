@@ -1,11 +1,28 @@
 <script>
-import Graph from './components/Graph.vue'
 import styled from 'vue-styled-components';
 
-const StyledTitle = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
+const linksContainer = styled.div`
+	display:flex;
+	justify-content: center;
+  height: 100px;
+  align-items: center;
+  box-shadow: 4px 0px 15px #ccc;
+  a {
+    text-decoration: none;
+    color: #000;
+    position:relative;
+    padding:10px;
+    &:hover {
+      &:before {
+        content:'';
+        position:absolute;
+        bottom:-3px;
+        width:100%;
+        height:4px;
+        background: #000;
+      }
+    }
+  }
 `;
 
 export default {
@@ -17,8 +34,7 @@ export default {
     }
   },
   components: {
-    Graph,
-    StyledTitle
+    linksContainer
   },
   mounted(){
     this.width = window.innerWidth;
@@ -32,8 +48,11 @@ export default {
 
 <template>
   <div id="app">
-    <StyledTitle>Wellcome to Vue Graph! YaY! 🤘</StyledTitle>
-    <Graph :width="width" :height="height"/>
+    <linksContainer>
+      <router-link :to="{ name: 'Hello' }">Home</router-link>
+      <router-link to="/graph">Graph</router-link>
+    </linksContainer>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -42,14 +61,9 @@ html, body {
   width:  100%;
   height: 100%;
   margin: 0px;
-}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  width: 100%;
-  height:100%;
 }
+
 </style>
