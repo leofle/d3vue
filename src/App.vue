@@ -7,6 +7,7 @@ const linksContainer = styled.div`
   height: 100px;
   align-items: center;
   box-shadow: 4px 0px 15px #ccc;
+  background-color: #fff;
   a {
     text-decoration: none;
     color: #000;
@@ -76,6 +77,7 @@ html, body {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #eeeeee;
 }
 
 </style>
