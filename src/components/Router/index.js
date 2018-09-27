@@ -13,7 +13,7 @@ export default new Router({
       component: Hello
 		},
 		{
-      path: '/graph',
+      path: '/graphsvg',
       name: 'Graph',
       component: Graph
     }

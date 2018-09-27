@@ -62,7 +62,7 @@ export default {
   <div id="app">
     <linksContainer>
       <router-link :to="{ name: 'Hello' }">Home</router-link>
-      <router-link to="/graph">Graph</router-link>
+      <router-link to="/graphsvg">GraphSvg</router-link>
     </linksContainer>
     <router-view></router-view>
   </div>
