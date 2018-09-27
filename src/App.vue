@@ -17,6 +17,18 @@ const linksContainer = styled.div`
         content:'';
         position:absolute;
         bottom:-3px;
+        left:0;
+        width:100%;
+        height:4px;
+        background: #000;
+      }
+    }
+    &.router-link-exact-active.router-link-active {
+      &:before {
+        content:'';
+        position:absolute;
+        bottom:-3px;
+        left:0;
         width:100%;
         height:4px;
         background: #000;
