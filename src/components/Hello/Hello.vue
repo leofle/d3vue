@@ -1,11 +1,17 @@
 <template>
+<div>
   <Card>
-    <Title>{{ msg }}</Title>
+    <Title>{{ $store.getters.msg }} 🤘</Title>
   </Card>
+	<Card>
+		<Form></Form>
+	</Card>
+</div>
 </template>
 
 <script>
 import styled from 'vue-styled-components';
+import Form from '../Form/Form'
 
 const Container = styled.div`
 	display:flex;
@@ -28,15 +34,11 @@ const Card = styled.div`
 `;
 
   export default {
-    name: 'Hello',
-    data () {
-      return {
-        msg: 'Welcome to Vue Graph YaY! 🤘'
-      }
-		},
+		name: 'Hello',
 		components: {
 			Card,
-			Title
+			Title,
+			Form
   	},
   }
 </script>

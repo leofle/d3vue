@@ -1,5 +1,6 @@
 <script>
 import styled from 'vue-styled-components';
+import * as d3 from 'd3'
 
 const linksContainer = styled.div`
 	display:flex;
@@ -49,12 +50,22 @@ export default {
   components: {
     linksContainer
   },
+  	beforeCreate() {
+    this.$nextTick(function() {
+      this.changed()
+    })
+
+	},
   mounted(){
     this.width = window.innerWidth;
     this.height = window.innerHeight;
   },
   methods:{
-
+    changed: function(event) {
+      d3.json("flare.json").then(graph => {
+        this.$store.commit('change', graph)
+      });
+    },
   }
 }
 </script>

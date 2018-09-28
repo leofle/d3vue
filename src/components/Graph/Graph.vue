@@ -23,7 +23,7 @@ export default {
     this.$nextTick(function() {
 			window.addEventListener('resize', this.resizeCanvas);
 
-      //Init
+			//Init
 			this.resizeCanvas();
 			this.setContext();
     })
