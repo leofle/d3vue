@@ -1,7 +1,7 @@
 <template>
 <div>
   <Card>
-    <Title>{{ $store.getters.msg }} 🤘</Title>
+    <Title>{{ $store.getters.msg || 'Welcome to Vue Graph YaY!' }} 🤘</Title>
   </Card>
 	<Card>
 		<Form></Form>
