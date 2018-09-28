@@ -4,7 +4,7 @@ import styled from 'vue-styled-components';
 const linksContainer = styled.div`
 	display:flex;
 	justify-content: center;
-  height: 100px;
+  height: 65px;
   align-items: center;
   box-shadow: 4px 0px 15px #ccc;
   background-color: #fff;
