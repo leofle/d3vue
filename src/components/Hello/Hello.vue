@@ -28,6 +28,7 @@ const CardFlex = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	word-break: break-word;
 	margin: 24px;
 	padding: 16px;
 	color: #757575;
