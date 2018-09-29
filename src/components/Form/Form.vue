@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="msg">Change the title</label>
+    <label for="msg">Change the title </label>
     <input @input="changed" name="msg">
   </div>
 </template>
