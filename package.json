@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@babel/runtime-corejs2": "^7.0.0",
+    "d3-dsv": "^1.0.10",
+    "d3-shape": "^1.2.2",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vue-styled-components": "^1.4.0",

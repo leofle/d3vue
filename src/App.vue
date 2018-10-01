@@ -61,7 +61,7 @@ export default {
     this.height = window.innerHeight;
   },
   methods:{
-    changed: function(event) {
+    changed: function() {
       d3.json("flare.json").then(graph => {
         this.$store.commit('change', graph)
       });

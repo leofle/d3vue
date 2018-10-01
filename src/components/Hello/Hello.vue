@@ -7,12 +7,16 @@
 	<Card>
 		<Form></Form>
 	</Card>
+	<Card>
+		<Donut></Donut>
+	</Card>
 </div>
 </template>
 
 <script>
-import styled from 'vue-styled-components';
+import styled from 'vue-styled-components'
 import Form from '../Form/Form'
+import Donut from '../Donut/DonutChart'
 
 const Container = styled.div`
 	display:flex;
@@ -52,7 +56,8 @@ const Card = styled.div`
 			Card,
 			CardFlex,
 			Title,
-			Form
+			Form,
+			Donut
   	},
   }
 </script>
