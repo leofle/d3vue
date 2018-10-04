@@ -8,7 +8,9 @@
 		<Form></Form>
 	</Card>
 	<Card>
-		<Donut></Donut>
+		<DonutContainer>
+			<Donut></Donut>
+		</DonutContainer>
 	</Card>
 </div>
 </template>
@@ -50,11 +52,18 @@ const Card = styled.div`
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 `;
 
+const DonutContainer = styled.div`
+		svg {
+			margin: auto;
+			display: inherit;
+		}
+`;
   export default {
 		name: 'Hello',
 		components: {
 			Card,
 			CardFlex,
+			DonutContainer,
 			Title,
 			Form,
 			Donut
