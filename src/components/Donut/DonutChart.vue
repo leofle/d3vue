@@ -31,13 +31,13 @@ export default {
         return d3Pie()
           .sort(null)
           .value(function(d) {
-            return d.population;
+            return d.wins;
           });
       },
       datos: function() {
         return this.pie(
           csvParse(dataCsv, d => {
-            d.population = +d.population;
+            d.wins = +d.wins;
             return d;
           })
         );
@@ -61,10 +61,10 @@ svg {
 <template>
 	<svg :width="settings.width" :height="settings.height">
 		<g class="container" :transform="`translate(${settings.width /2},${settings.height / 2})`">
-			<g v-bind:key="d.data.age" v-for="d in datos" class="arc">
-				<path :d="`${arc(d)}`" :fill="`${color(d.data.age)}`" />
+			<g v-bind:key="d.data.team" v-for="d in datos" class="arc">
+				<path :d="`${arc(d)}`" :fill="`${color(d.data.team)}`" />
 				<text :transform="`translate(${arc.centroid(d)})`" dy=".35em">
-					{{d.data.age}}
+					{{d.data.team}}
 				</text>
 			</g>
 		</g>
