@@ -75,6 +75,7 @@ export default {
   },
   methods: {
     addCountry: function() {
+      if(!this.country || !this.wins) return;
       let data = {
         "team": this.country,
         "wins": this.wins
