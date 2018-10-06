@@ -2,9 +2,42 @@
 import * as d3 from "d3";
 import { scaleOrdinal } from "d3-scale";
 import { arc as d3Arc, pie as d3Pie } from "d3-shape";
+import styled from 'vue-styled-components'
+
+const Flex = styled.div`
+  display:flex;
+  flex-flow: row;
+  align-items: center;
+`;
+
+const btnProps = { primary: Boolean };
+const Button = styled('button', btnProps)`
+    background: ${props=> props.primary? 'cyan' : 'hotpink'};
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    margin: 4px;
+    outline:none;
+`;
+
+const InputDonut = styled.div`
+  input {
+		height: 33px;
+    outline: none;
+    line-height: 30px;
+    font-size: 14px;
+    margin: 2px;
+    padding: 0 10px;
+  }
+`;
 
 export default {
   name: "donut",
+  components: {
+    Button,
+    InputDonut,
+    Flex
+  },
   props: ['width', 'height'],
   data() {
     return {
@@ -57,6 +90,7 @@ export default {
     }
   }
 };
+
 </script>
 <style>
 svg {
@@ -83,13 +117,21 @@ svg {
 			</g>
 		</g>
 	</svg>
-  <input type="text" 
-    @input="changeCountry"
-  />
-  <input type="text" 
-    @input="changeWins"
-  />
-  <button v-on:click="addCountry">Add</button>
-  <p>{{country}} {{wins}}</p>
+  <Flex>
+    <InputDonut>
+    <input type="text"
+      placeholder="Add Country"
+      @input="changeCountry"
+    />
+    </InputDonut>
+    <InputDonut>
+    <input type="text"
+      placeholder="Add Wins"
+      @input="changeWins"
+    />
+    </InputDonut>
+    <Button primary v-on:click="addCountry">Add</Button>
+  </Flex>
+    <p>{{country}} {{wins}}</p>
   </div>
 </template>

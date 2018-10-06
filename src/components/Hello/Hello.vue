@@ -58,6 +58,7 @@ const DonutContainer = styled.div`
 			display: inherit;
 		}
 `;
+
   export default {
 		name: 'Hello',
 		components: {
