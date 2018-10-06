@@ -2,19 +2,21 @@
 import * as d3 from "d3";
 import { scaleOrdinal } from "d3-scale";
 import { arc as d3Arc, pie as d3Pie } from "d3-shape";
-import { csvParse } from "d3-dsv";
-import dataCsv from "./data";
 
 export default {
   name: "donut",
+  props: ['width', 'height'],
   data() {
     return {
       settings: {
         width: 960,
         height: 500
       },
+      datos: this.$store.getters.datag,
       radius: Math.min(960, 500) / 2,
-      color: scaleOrdinal(d3.schemeSet3)
+      color: scaleOrdinal(d3.schemeSet3),
+      country:'',
+      wins:0
     };
   },
   beforeCreate() {
@@ -34,15 +36,26 @@ export default {
             return d.wins;
           });
       },
-      datos: function() {
-        return this.pie(
-          csvParse(dataCsv, d => {
-            d.wins = +d.wins;
-            return d;
-          })
-        );
+      data: function() {
+        return JSON.parse(JSON.stringify( this.pie(this.$store.getters.datag) ));
       }
-	}
+  },
+  methods: {
+    addCountry: function() {
+      let data = {
+        "team": this.country,
+        "wins": this.wins
+      }
+      let res = JSON.parse(JSON.stringify( [...this.$store.getters.datag,data]));
+      this.$store.commit('getdata', res);
+    },
+    changeCountry: function(event) {
+      this.country = event.target.value;
+    },
+    changeWins: function(event) {
+      this.wins = Number(event.target.value)
+    }
+  }
 };
 </script>
 <style>
@@ -59,9 +72,10 @@ svg {
 }
 </style>
 <template>
+<div>
 	<svg :width="settings.width" :height="settings.height">
 		<g class="container" :transform="`translate(${settings.width /2},${settings.height / 2})`">
-			<g v-bind:key="d.data.team" v-for="d in datos" class="arc">
+			<g v-bind:key="d.data.team" v-for="d in data" class="arc">
 				<path :d="`${arc(d)}`" :fill="`${color(d.data.team)}`" />
 				<text :transform="`translate(${arc.centroid(d)})`" dy=".35em">
 					{{d.data.team}}
@@ -69,4 +83,12 @@ svg {
 			</g>
 		</g>
 	</svg>
+  <input type="text" 
+    @input="changeCountry"
+  />
+  <input type="text" 
+    @input="changeWins"
+  />
+  <button v-on:click="addCountry">Add</button>
+  </div>
 </template>

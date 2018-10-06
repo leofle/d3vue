@@ -53,6 +53,7 @@ export default {
   	beforeCreate() {
     this.$nextTick(function() {
       this.changed()
+      this.getdata()
     })
 
 	},
@@ -64,6 +65,11 @@ export default {
     changed: function() {
       d3.json("flare.json").then(graph => {
         this.$store.commit('change', graph)
+      });
+    },
+    getdata: function() {
+      d3.json("data.json").then(data => {
+        this.$store.commit('getdata', data)
       });
     },
   }

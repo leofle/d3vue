@@ -9,7 +9,7 @@
 	</Card>
 	<Card>
 		<DonutContainer>
-			<Donut></Donut>
+			<Donut width="960" height="500"></Donut>
 		</DonutContainer>
 	</Card>
 </div>
