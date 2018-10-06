@@ -90,5 +90,6 @@ svg {
     @input="changeWins"
   />
   <button v-on:click="addCountry">Add</button>
+  <p>{{country}} {{wins}}</p>
   </div>
 </template>
