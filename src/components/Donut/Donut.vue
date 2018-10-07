@@ -83,6 +83,12 @@ export default {
       let res = JSON.parse(JSON.stringify( [...this.$store.getters.datag,data]));
       this.$store.commit('getdata', res);
     },
+    removeCountry: function() {
+    if(!this.country) return;
+      let dataArray = JSON.parse(JSON.stringify(this.$store.getters.datag));
+      let res = dataArray.filter( el => el.team !== this.country );
+      this.$store.commit('getdata', res);
+    },
     changeCountry: function(event) {
       this.country = event.target.value;
     },
@@ -132,6 +138,7 @@ svg {
     />
     </InputDonut>
     <Button primary v-on:click="addCountry">Add</Button>
+    <Button v-on:click="removeCountry">Remove</Button>
   </Flex>
     <p>{{country}} {{wins}}</p>
   </div>
