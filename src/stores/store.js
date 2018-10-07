@@ -7,7 +7,9 @@ export const store = new Vuex.Store({
   state: {
     datag: [],
     msg: 'Welcome to Vue Graph YaY!',
-    graph: {}
+    graph: {},
+    country: '',
+    wins: null
   },
   mutations: {
     change(state, graph) {
@@ -18,11 +20,19 @@ export const store = new Vuex.Store({
     },
     changeText(state, text) {
       state.msg = text;
+    },
+    changeCountry(state, country) {
+      state.country = country;
+    },
+    changeWins(state, wins) {
+      state.wins = wins;
     }
   },
   getters: {
     datag: state => state.datag,
     graph: state => state.graph,
-    msg: state => state.msg
+    msg: state => state.msg,
+    country: state => state.country,
+    wins: state => state.wins
   }
 })

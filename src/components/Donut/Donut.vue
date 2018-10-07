@@ -57,8 +57,8 @@ export default {
       datos: this.$store.getters.datag,
       radius: Math.min(this._props.width, this._props.height) / 2,
       color: scaleOrdinal(d3.schemeSet3),
-      country:'',
-      wins:null
+      country: this.$store.getters.country,
+      wins: this.$store.getters.wins
     };
   },
   beforeCreate() {
@@ -84,27 +84,27 @@ export default {
   },
   methods: {
     addCountry: function() {
-      if(!this.country || !this.wins) return;
+      if(!this.$store.getters.country || !this.$store.getters.wins) return;
       let data = {
-        "team": this.country,
-        "wins": this.wins
+        "team": this.$store.getters.country,
+        "wins": this.$store.getters.wins
       }
       let res = JSON.parse(JSON.stringify( [...this.$store.getters.datag,data]));
       this.$store.commit('getdata', res);
-      this.country = '';
-      this.wins = null;
+      this.$store.commit('changeCountry', '');
+      this.$store.commit('changeWins', null);
     },
     removeCountry: function() {
-    if(!this.country) return;
+    if(!this.$store.getters.country) return;
       let dataArray = JSON.parse(JSON.stringify(this.$store.getters.datag));
-      let res = dataArray.filter( el => el.team !== this.country );
+      let res = dataArray.filter( el => el.team !== this.$store.getters.country );
       this.$store.commit('getdata', res);
     },
     changeCountry: function(event) {
-      this.country = event.target.value;
+      this.$store.commit('changeCountry', event.target.value);
     },
     changeWins: function(event) {
-      this.wins = Number(event.target.value)
+      this.$store.commit('changeWins', event.target.value);
     }
   }
 };
@@ -143,7 +143,7 @@ svg {
     />
     </InputDonut>
     <InputDonut>
-    <input type="text"
+    <input type="number"
       placeholder="Add Wins"
       @input="changeWins"
     />
@@ -151,6 +151,6 @@ svg {
     <Button primary v-on:click="addCountry">Add</Button>
     <Button v-on:click="removeCountry">Remove</Button>
   </Flex>
-    <p>{{country}} {{wins}}</p>
+    <p>{{$store.getters.country}} {{$store.getters.wins}}</p>
   </div>
 </template>
