@@ -38,12 +38,12 @@ export default {
     InputDonut,
     Flex
   },
-  props: ['width', 'height'],
+  props: {width:Number, height:Number},
   data() {
     return {
       settings: {
-        width: 960,
-        height: 500
+        width: this._props.width,
+        height: this._props.height
       },
       datos: this.$store.getters.datag,
       radius: Math.min(960, 500) / 2,

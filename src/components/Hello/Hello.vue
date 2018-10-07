@@ -9,7 +9,7 @@
 	</Card>
 	<Card>
 		<DonutContainer>
-			<Donut width="960" height="500"></Donut>
+			<Donut :width="960" :height="500"></Donut>
 		</DonutContainer>
 	</Card>
 </div>
@@ -18,7 +18,7 @@
 <script>
 import styled from "vue-styled-components";
 import Form from "../Form/Form";
-import Donut from "../Donut/DonutChart";
+import Donut from "../Donut/Donut";
 
 const Title = styled.h1`
   font-size: 1.5em;
