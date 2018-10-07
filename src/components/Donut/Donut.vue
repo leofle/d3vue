@@ -46,7 +46,7 @@ export default {
         height: this._props.height
       },
       datos: this.$store.getters.datag,
-      radius: Math.min(960, 500) / 2,
+      radius: Math.min(this._props.width, this._props.height) / 2,
       color: scaleOrdinal(d3.schemeSet3),
       country:'',
       wins:0
