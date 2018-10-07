@@ -49,7 +49,7 @@ export default {
       radius: Math.min(this._props.width, this._props.height) / 2,
       color: scaleOrdinal(d3.schemeSet3),
       country:'',
-      wins:0
+      wins:null
     };
   },
   beforeCreate() {
