@@ -8,6 +8,7 @@ const Flex = styled.div`
   display:flex;
   flex-flow: row;
   align-items: center;
+  justify-content: center;
 `;
 
 const btnProps = { primary: Boolean };
@@ -90,6 +91,8 @@ export default {
       }
       let res = JSON.parse(JSON.stringify( [...this.$store.getters.datag,data]));
       this.$store.commit('getdata', res);
+      this.country = '';
+      this.wins = null;
     },
     removeCountry: function() {
     if(!this.country) return;
